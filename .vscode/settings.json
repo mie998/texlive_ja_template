@@ -11,15 +11,6 @@
             "-f", "-gg", "-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOC%"
           ]
         },
-        // latexmk を利用した platex によるビルドコマンド
-        // 古い LaTeX のテンプレートを使いまわしている (ドキュメントクラスが jreport や jsreport ) 場合のため
-        {
-          "name": "Latexmk (pLaTeX)",
-          "command": "latexmk",
-          "args": [
-            "-f", "-gg", "-pv", "-latex='platex'", "-latexoption='-kanji=utf8 -no-guess-input-env'", "-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOC%"
-          ]
-        },
     ],
 
     // latex-workshop.latex.recipes: Recipe の定義
