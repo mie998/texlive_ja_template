@@ -2,7 +2,7 @@
 
 ## local docker container 
 - https://github.com/korosuke613/texlive-ja-devcontainer-template を参考にしつつ、不要ファイルなどを /build 以下にまとめるなどの工夫を行うこと
-  - この点については https://github.com/James-Yu/LaTeX-Workshop/issues/548 が参考になるかも？
+  - この点については https://github.com/James-Yu/LaTeX-Workshop/issues/548 が参考になるかも？ -> 5101d36b34001239a7b3b4cd04ad65559430da7c にて変更。autoClean を built 時に走らせるようにした。
 - dev Container 内では基本的にlatex-workshopを用いてコンパイルやpdfのビューイングを行うことになる。そのため、このwiki(https://github.com/James-Yu/LaTeX-Workshop/wiki/)が大変参考にできると思う
 
 ## github actions 
