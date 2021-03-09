@@ -1,6 +1,7 @@
 {
     "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
     "latex-workshop.latex.autoBuild.run": "onFileChange",
+    "latex-workshop.latex.autoClean.run": "onBuilt",
     "editor.wordSeparators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?　、。「」【】『』（）！？てにをはがのともへでや",
     "latex-workshop.latex.tools": [
         // latexmk を利用した uplatex によるビルドコマンド
@@ -45,7 +46,7 @@
     // 一時ファイルの影響で、修正後のビルドに失敗してしまう事がよくある。そのため、一時的なファイルを
     // 削除する機能 (クリーンアップ) が LaTeX Workshop には備わっている。
     "latex-workshop.latex.clean.fileTypes": [
-        "*.aux", "*.bbl", "*.blg", "*.idx", "*.ind", "*.lof", "*.lot", "*.out", "*.toc", "*.acn", "*.acr", "*.alg", "*.glg", "*.glo", "*.gls", "*.ist", "*.fls", "*.log", "*.fdb_latexmk", "*.synctex.gz",
+        "*.aux", "*.dvi", "*.bbl", "*.blg", "*.idx", "*.ind", "*.lof", "*.lot", "*.out", "*.toc", "*.acn", "*.acr", "*.alg", "*.glg", "*.glo", "*.gls", "*.ist", "*.fls", "*.log", "*.fdb_latexmk", "*.synctex.gz",
         // for Beamer files
         "_minted*", "*.nav", "*.snm", "*.vrb",
     ],
