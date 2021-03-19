@@ -8,9 +8,9 @@ jobs:
         uses: actions/checkout@v2
       - name: Update old texfile
         uses: canastro/copy-action@0.0.2
-          with: 
-            source: "diff/new.tex"
-            target: "diff/old.tex"
+        with: 
+          source: "diff/new.tex"
+          target: "diff/old.tex"
       - name: Update new texfile
         uses: canastro/copy-action@0.0.2
         with: 
