@@ -13,9 +13,9 @@ jobs:
             target: "diff/old.tex"
       - name: Update new texfile
         uses: canastro/copy-action@0.0.2
-          with: 
-            source: "main.tex"
-            target: "diff/new.tex"
+        with: 
+          source: "main.tex"
+          target: "diff/new.tex"
       - name: Install and Run latexdiff
         run: |
           sudo apt-get install latexdiff
