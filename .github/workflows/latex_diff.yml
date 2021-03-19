@@ -22,10 +22,10 @@ jobs:
         with:
           root_file: main.tex
       - name: Restore artifact
-            uses: actions/upload-artifact@v2
-            with:
-              name: PDF
-              path: main.pdf
+        uses: actions/upload-artifact@v2
+        with:
+          name: PDF
+          path: main.pdf
       - name: Create diff.pdf
         uses: xu-cheng/latex-action@v2
         with:
