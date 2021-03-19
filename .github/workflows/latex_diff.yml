@@ -16,13 +16,12 @@ jobs:
         with: 
           source: "main.tex"
           target: "diff/new.tex"
-      - name: make diff file
+      - name: Make diff file
         uses: tawalaya/latex-diff-action@v1
         with:
-          working_directory: /diff
           root_file: |
-            old.tex
-            new.tex
+            diff/old.tex
+            diff/new.tex
 #      - name: Install and Run latexdiff
 #        run: |
 #          sudo apt-get install latexdiff
