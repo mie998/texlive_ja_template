@@ -1,0 +1,34 @@
+name: Build LaTeX document
+on: [push]
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout new repository
+        uses: actions/checkout@v2
+        with: 
+          path: new
+      - name: Checkout old repository
+        uses: actions/checkout@v2
+        with: 
+          path: old
+          ref: v1.0
+      - name: Install latexdiff
+        run: sudo apt-get install latexdiff
+      - name: Run latexdiff
+        run: latexdiff --flatten old/main.tex new/main.tex > diff/diff.tex
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
+      - name: Restore artifact
+            uses: actions/upload-artifact@v2
+            with:
+              name: PDF
+              path: main.pdf
+      - name: Create diff.pdf
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: diff.tex
+          working_directory: diff
+        
