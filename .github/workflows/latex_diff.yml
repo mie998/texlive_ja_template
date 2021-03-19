@@ -19,10 +19,10 @@ jobs:
       - name: make diff file
         uses: tawalaya/latex-diff-action@v1
         with:
-          working_directory: diff
+          working_directory: /diff
           root_file: |
-            file1.tex
-            file2.tex
+            old.tex
+            new.tex
 #      - name: Install and Run latexdiff
 #        run: |
 #          sudo apt-get install latexdiff
