@@ -4,19 +4,22 @@ jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout new repository
+      - name: Checkout 
         uses: actions/checkout@v2
-        with: 
-          path: new
-      - name: Checkout old repository
-        uses: actions/checkout@v2
-        with: 
-          path: old
-          ref: v1.0
-      - name: Install latexdiff
-        run: sudo apt-get install latexdiff
-      - name: Run latexdiff
-        run: latexdiff --flatten old/main.tex new/main.tex > diff/diff.tex
+      - name: Update old texfile
+        uses: canastro/copy-action@0.0.2
+          with: 
+            source: "diff/new.tex"
+            target: "diff/old.tex"
+      - name: Update new texfile
+        uses: canastro/copy-action@0.0.2
+          with: 
+            source: "main.tex"
+            target: "diff/new.tex"
+      - name: Install and Run latexdiff
+        run: |
+          sudo apt-get install latexdiff
+          latexdiff --flatten diff/old.tex diff/new.tex > diff/diff.tex
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
