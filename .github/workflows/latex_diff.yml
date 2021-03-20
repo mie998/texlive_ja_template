@@ -16,16 +16,14 @@ jobs:
         with: 
           source: "main.tex"
           target: "diff/new.tex"
-      - name: Make diff file
-        uses: tawalaya/latex-diff-action@v1
-        with:
-          root_file: |
-            diff/old.tex
-            diff/new.tex
-#      - name: Install and Run latexdiff
-#        run: |
-#          sudo apt-get install latexdiff
-#          latexdiff --flatten diff/old.tex diff/new.tex > diff/diff.tex
+  # - name: Make diff file
+  #   uses: tawalaya/latex-diff-action@v1
+  #   with:
+  #     root_file: main.tex
+      - name: Install and Run latexdiff
+        run: |
+          sudo apt-get install latexdiff
+          latexdiff --flatten diff/old.tex diff/new.tex > diff/diff.tex
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
@@ -39,5 +37,5 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: diff.tex
-          working_directory: diff
+          working_directory: /diff
         
