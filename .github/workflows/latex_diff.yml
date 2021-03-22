@@ -4,41 +4,27 @@ jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 
+      - name: Checkout
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Update old texfile
         uses: canastro/copy-action@0.0.2
-        with: 
+        with:
           source: "diff/new.tex"
           target: "diff/old.tex"
       - name: Update new texfile
         uses: canastro/copy-action@0.0.2
-        with: 
+        with:
           source: "main.tex"
           target: "diff/new.tex"
-  # - name: Make diff file
-  #   uses: tawalaya/latex-diff-action@v1
-  #   with:
-  #     root_file: main.tex
-  #
-  #    - name: Install and Run latexdiff
-  #      run: |
-  #        sudo apt-get install latexdiff
-  #        latexdiff --flatten diff/old.tex diff/new.tex > diff/diff.tex
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v2
+      - name: Build LaTeX documents
+        uses: 3rdJCG/latex-build-langja@master
         with:
-          root_file: main.tex
-      - name: Restore artifact
+          root_file: diff/diff.tex
+          args: -r .latexmkrc
+      - name: Restore pdf artifact
         uses: actions/upload-artifact@v2
         with:
           name: PDF
-          path: main.pdf
-      - name: Create diff.pdf
-        uses: xu-cheng/latex-action@v2
-        with:
-          root_file: diff.tex
-          working_directory: /diff
-        
+          path: diff/diff.pdf
