@@ -18,6 +18,10 @@ jobs:
         with:
           source: "main.tex"
           target: "diff/new.tex"
+      - name: Install and Run latexdiff
+        run: |
+          sudo apt-get install latexdiff
+          latexdiff --flatten diff/old.tex diff/new.tex > diff/diff.tex
       - name: Build LaTeX documents
         uses: 3rdJCG/latex-build-langja@master
         with:
