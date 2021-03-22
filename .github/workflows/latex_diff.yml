@@ -30,5 +30,14 @@ jobs:
       - name: Restore pdf artifact
         uses: actions/upload-artifact@v2
         with:
-          name: PDF
+          name: DIFF
           path: diff/diff.pdf
+      - name: test
+        run: |
+          ls
+          ls diff/
+      - name: Restore pdf artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: DIFF
+          path: diff.pdf
