@@ -8,34 +8,18 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Update old texfile
-        uses: canastro/copy-action@0.0.2
-        with:
-          source: "diff/new.tex"
-          target: "diff/old.tex"
-      - name: Update new texfile
-        uses: canastro/copy-action@0.0.2
-        with:
-          source: "main.tex"
-          target: "diff/new.tex"
       - name: Install and Run latexdiff
         run: |
-          sudo apt-get install latexdiff
-          latexdiff --flatten diff/old.tex diff/new.tex > diff/diff.tex
-      - name: Build LaTeX documents
-        uses: 3rdJCG/latex-build-langja@master
-        with:
-          root_file: diff/diff.tex
-          args: -r .latexmkrc
-      - name: Restore pdf artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: DIFF
-          path: diff/diff.pdf
+          sudo apt-get install latexdiff && latexdiff-vc
+          latexdiff-vc -e utf8 --git --flatten --force -r HEAD~1 main.tex
       - name: test
         run: |
           ls
-          ls diff/
+      - name: Build LaTeX documents
+        uses: 3rdJCG/latex-build-langja@master
+        with:
+          root_file: main-diffHEAD~1.tex
+          args: -r .latexmkrc
       - name: Restore pdf artifact
         uses: actions/upload-artifact@v2
         with:
