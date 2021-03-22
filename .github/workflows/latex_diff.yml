@@ -10,15 +10,15 @@ jobs:
           fetch-depth: 0
       - name: Install and Run latexdiff
         run: |
-          sudo apt-get install latexdiff && latexdiff-vc
-          latexdiff-vc -e utf8 --git --flatten --force -r HEAD~1 main.tex
+          sudo apt-get install latexdiff-vc
+          latexdiff-vc --git --flatten --force -r rev1 main.tex
       - name: test
         run: |
           ls
       - name: Build LaTeX documents
         uses: 3rdJCG/latex-build-langja@master
         with:
-          root_file: main-diffHEAD~1.tex
+          root_file: main-diffrev1.tex
           args: -r .latexmkrc
       - name: Restore pdf artifact
         uses: actions/upload-artifact@v2
