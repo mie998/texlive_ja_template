@@ -11,3 +11,8 @@ jobs:
         with:
           root_file: main.tex
           args: -r .latexmkrc
+      - name: Restore pdf artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: PDF
+          path: main.pdf
