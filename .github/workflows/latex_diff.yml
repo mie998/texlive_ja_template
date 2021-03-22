@@ -10,9 +10,7 @@ jobs:
           fetch-depth: 0
       - name: Install and Run latexdiff
         run: |
-          sudo apt-get install latexdiff && latexdiff-vc
-          ls 
-          pwd
+          sudo apt-get install latexdiff 
           latexdiff-vc -e utf8 -t CFONT --git --flatten --force -r rev1 main.tex
       - name: test
         run: |
