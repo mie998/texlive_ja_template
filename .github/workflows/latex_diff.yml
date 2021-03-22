@@ -10,7 +10,7 @@ jobs:
           fetch-depth: 0
       - name: Install and Run latexdiff
         run: |
-          sudo apt-get install latexdiff-vc
+          sudo apt-get install latexdiff && latexdiff-vc
           latexdiff-vc --git --flatten --force -r rev1 main.tex
       - name: test
         run: |
