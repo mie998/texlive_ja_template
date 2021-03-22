@@ -7,7 +7,7 @@ jobs:
       - name: pull from repository
         uses: actions/checkout@master
       - name: Build LaTeX documents
-        uses: 3rdJCG/latex-build-langja
+        uses: 3rdJCG/latex-build-langja@master
         with:
           root_file: main.tex
           args: -r .latexmkrc
