@@ -12,13 +12,11 @@ jobs:
         run: |
           sudo apt-get install latexdiff 
           latexdiff-vc -e utf8 -t CFONT --git --flatten --force -r HEAD~1 main.tex
-      - name: test
-        run: |
-          ls
+          mv main-diffHEAD~1.tex diff.tex
       - name: Build LaTeX documents
         uses: 3rdJCG/latex-build-langja@master
         with:
-          root_file: main-diffHEAD~1.tex
+          root_file: diff.tex
           args: -r .latexmkrc
       - name: Restore pdf artifact
         uses: actions/upload-artifact@v2
