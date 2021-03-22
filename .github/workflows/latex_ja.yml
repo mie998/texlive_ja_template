@@ -4,8 +4,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: pull from repository
+      - name: checkout repository
         uses: actions/checkout@master
+        with:
+          fetch-depth: 0
       - name: Build LaTeX documents
         uses: 3rdJCG/latex-build-langja@master
         with:
