@@ -31,7 +31,7 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
-          args: 'uplatex %O -synctex=1 -interaction=nonstopmode %S'
+          working_directory: $${pwd}}
       - name: Restore artifact
         uses: actions/upload-artifact@v2
         with:
