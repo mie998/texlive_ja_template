@@ -1,0 +1,14 @@
+name: Build LaTeX document
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: pull from repository
+      uses: actions/checkout@master
+    - name: Build LaTeX documents
+      uses: 3rdJCG/latex-build-langja
+      with:
+        root_file: main.tex
+        args: -r .latexmkrc
+        extra-tex-package: siunitx here pgfplots csvsimple circuitikz
