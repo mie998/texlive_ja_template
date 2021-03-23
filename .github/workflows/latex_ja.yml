@@ -23,13 +23,38 @@ jobs:
         with:
           root_file: diff.tex
           args: -r .latexmkrc
-      - name: Restore pdf artifact
+      - name: Restore source code artifact
         uses: actions/upload-artifact@v2
         with:
-          name: PDF
-          path: main.pdf
-      - name: Restore diff artifact
-        uses: actions/upload-artifact@v2
+          name: src
+          path: main.tex
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
-          name: DIFF
-          path: diff.pdf
+          tag_name: ${{github.ref}}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Compiled PDF ${{github.ref}}
+          draft: false
+          prerelease: false
+      - name: Upload Release Asset main
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./main.pdf
+          asset_name: main.pdf
+          asset_content_type: application/pdf
+      - name: Upload Release Asset diff
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./diff.pdf
+          asset_name: diff.pdf
+          asset_content_type: application/pdf
