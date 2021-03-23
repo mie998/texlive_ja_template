@@ -3,7 +3,7 @@
 ## local container
 
 1. Install VScode and open this project directory with VScode.
-1. VScode recommend you reopen this project in container, so check it.
+1. VScode recommend you reopen this project in container. Select 'Reopen in container'.
    ![github recommendation](https://i.imgur.com/VPUe1Jt.png)
 1. It will take some time to open docker container for the first time.
 1. deit main.tex and save. main.pdf will automatically be compiled.
