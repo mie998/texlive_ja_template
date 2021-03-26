@@ -11,16 +11,16 @@
 
 ## git management
 
-You can manage your files with git.
+You can manage your tex files with git.
 By default, locally created main.pdf will be excluded from git management.
 
 ## github actions
 
-Pushed tex files will be automatically compiled with github-actions. It will take some times for this process (3~5 minutes).
+When you push revised tex file with git-tag, it will be automatically compiled with github-actions. It will take some times for this process. 
 
 ## github release
 
-You can check compiled main.pdf and diff.pdf with github-release. I Recommend you to use git tag to manage github-release.
+You can check compiled main.pdf and diff.pdf with github-release. Git-tag by the name of 'vX.X.X' will create github-release and restore pdf files.
 ![check pdf files with github release](https://imgur.com/R56YasZ.png)
 
 # thanks

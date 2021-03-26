@@ -27,11 +27,6 @@ jobs:
         with:
           root_file: diff.tex
           args: -r .latexmkrc
-      - name: Restore source code artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: src
-          path: main.tex
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
