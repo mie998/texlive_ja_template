@@ -1,5 +1,20 @@
 # Easy latex editer with vscode, docker, and github actions!
 
+## Usage in private repository without template tags and commit logs.
+
+```
+$ git clone git@github.com:mie998/texlive_ja_template.git {new_repo_name} --no-tags --depth 1
+$ gh repo create {new_repo_name} --private
+```
+
+these error message will be displayed, but just ignore it.  
+`fatal: remote origin already exists. /usr/local/bin/git: exit status 128`
+
+```
+$ git remote set-url origin {new url}/{new_repo_name}.git
+$ git push -u origin main
+```
+
 ## local container
 
 1. Install VScode and open this project directory with VScode.
@@ -16,7 +31,7 @@ By default, locally created main.pdf will be excluded from git management.
 
 ## github actions
 
-When you push revised tex file with git-tag, it will be automatically compiled with github-actions. It will take some times for this process. 
+When you push revised tex file with git-tag, it will be automatically compiled with github-actions. It will take some times for this process.
 
 ## github release
 
