@@ -1,28 +1,17 @@
 # Easy latex editer with vscode, docker, and github actions!
 
-## Usage in private repository without template tags and commit logs.
-
-```
-$ git clone git@github.com:mie998/texlive_ja_template.git {new_repo_name} --no-tags --depth 1
-$ gh repo create {new_repo_name} --private
-```
-
-these error message will be displayed, but just ignore it.  
-`fatal: remote origin already exists. /usr/local/bin/git: exit status 128`
-
-```
-$ git remote set-url origin {new url}/{new_repo_name}.git
-$ git push -u origin main
-```
+## Quick Start
+push 'use this template' button.
+![github recommendation](https://imgur.com/RTSRV8J)
 
 ## local container
 
-1. Install VScode and open this project directory with VScode.
+1. Install VScode and open your project directory with VScode.
 1. VScode recommend you reopen this project in container. Select 'Reopen in container'.
    ![github recommendation](https://i.imgur.com/VPUe1Jt.png)
-1. It will take some time to open docker container for the first time.
-1. deit main.tex and save. main.pdf will automatically be compiled.
-1. Boring installing of latex tools is never be needed!! Edit latex files with docker container.
+1. It will take some time to open docker container for the first time due to docker image build.
+1. Edit main.tex and save. main.pdf will automatically be compiled.
+1. Feel free to edit latex document in docker container, without pc environmental pollution.
 
 ## git management
 
@@ -31,7 +20,7 @@ By default, locally created main.pdf will be excluded from git management.
 
 ## github actions
 
-When you push revised tex file with git-tag, it will be automatically compiled with github-actions. It will take some times for this process.
+When you push revised tex file with git-tag, tex files will be automatically compiled with github-actions. It will take some times for this process.
 
 ## github release
 
