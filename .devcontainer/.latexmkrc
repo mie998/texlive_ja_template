@@ -12,3 +12,8 @@ $dvips = 'dvips %O -z -f %S | convbkmk -u > %D';
 $ps2pdf = 'ps2pdf %O %S %D';
 $pdf_mode = 3;
 $pdf_previewer = 'xdg-open';
+$out_dir = '/build';
+
+$ENV{'TEXINPUTS'}='./tex//:' . $ENV{'TEXINPUTS'}; 
+$ENV{'BIBINPUTS'}='./bib//:' . $ENV{'BIBINPUTS'};
+$ENV{'BSTINPUTS'}='./bst//:' . $ENV{'BSTINPUTS'};

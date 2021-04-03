@@ -1,4 +1,4 @@
-FROM korosuke613/ubuntu-texlive-ja:latest
+FROM mie999/ubuntu-texlive-ja:latest
 
 RUN apt-get update && apt-get install -y \
     git \

@@ -20,8 +20,8 @@ jobs:
       - name: Install and Run latexdiff
         run: |
           sudo apt-get install latexdiff 
-          latexdiff-vc -e utf8 -t CFONT --git --flatten --force -r HEAD~1 main.tex
-          mv main-diffHEAD~1.tex diff.tex
+          latexdiff-vc -e utf8 -t CFONT --git --flatten --force -r HEAD~1 tex/main.tex
+          mv tex/main-diffHEAD~1.tex diff.tex
       - name: Build LaTeX-diff documents
         uses: 3rdJCG/latex-build-langja@master
         with:
