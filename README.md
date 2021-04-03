@@ -2,7 +2,7 @@
 
 ## Quick Start
 push 'use this template' button.
-![github recommendation](https://imgur.com/RTSRV8J)
+![template button](https://i.imgur.com/RTSRV8J.png)
 
 ## local container
 
